@@ -8,6 +8,7 @@ const links = [
   { id: "about", label: "소개" },
   { id: "skills", label: "기술" },
   { id: "projects", label: "프로젝트" },
+  { id: "app", label: "체험" },
   { id: "contact", label: "연락" },
 ];
 
@@ -58,7 +59,7 @@ export default function Nav() {
               href={`#${link.id}`}
               whileTap={SQUISH_TAP}
               transition={SQUISH_SPRING}
-              className="relative block px-4 py-2 font-display text-base text-ink sm:px-5"
+              className="relative block px-3 py-2 font-display text-base text-ink sm:px-5"
             >
               {link.label}
             </motion.a>

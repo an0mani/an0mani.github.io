@@ -47,6 +47,32 @@
     inset -0.3rem -0.3rem 0.7rem rgb(255 255 255 / 0.8);
 }
 
+/* 첫 화면의 점토 도형: 왼쪽 위에서 빛을 받은 것처럼 보이게 칠합니다. */
+@layer components {
+  .clay-ball {
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle at 32% 28%,
+      color-mix(in srgb, var(--tone) 35%, white) 0%,
+      var(--tone) 45%,
+      var(--tone-dark) 100%
+    );
+    box-shadow:
+      0.9rem 1.2rem 2rem rgb(var(--clay-shadow) / 0.3),
+      inset -0.6rem -0.8rem 1.2rem rgb(0 0 0 / 0.12),
+      inset 0.5rem 0.6rem 1rem rgb(255 255 255 / 0.55);
+    touch-action: none;
+  }
+
+  .clay-ball-blob {
+    border-radius: 46% 54% 48% 52% / 52% 46% 54% 48%;
+  }
+
+  .clay-ring {
+    mask: radial-gradient(circle, transparent 30%, #000 31%);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

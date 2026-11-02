@@ -24,7 +24,7 @@ export default function Contact() {
       </motion.div>
 
       <footer className="mt-16 text-center text-sm text-muted">
-        © {profile.name} · Next.js, TypeScript, Tailwind CSS, three.js로 만들었습니다.
+        © {profile.name} · Next.js, TypeScript, Tailwind CSS, Flutter로 만들었습니다.
       </footer>
     </Section>
   );

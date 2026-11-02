@@ -1,0 +1,35 @@
+{
+    "name": "Done It mini",
+    "short_name": "Done It",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#f4efff",
+    "theme_color": "#d6c8ff",
+    "description": "Flutter로 만든 작은 성취 기록 앱 데모",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

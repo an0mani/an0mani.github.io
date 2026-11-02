@@ -14,7 +14,9 @@ export type Project = {
 };
 
 export type SkillGroup = {
+  icon: string;
   label: string;
+  note: string;
   color: ClayColor;
   skills: string[];
 };
@@ -29,11 +31,41 @@ export const profile = {
 };
 
 export const skillGroups: SkillGroup[] = [
-  { label: "회사에서", color: "lilac", skills: ["Laravel", "PHP"] },
-  { label: "취미로", color: "mint", skills: ["Flutter", "Dart", "Rive", "Drift"] },
-  { label: "배우는 중", color: "peach", skills: ["TypeScript", "Next.js", "Supabase"] },
-  { label: "홈랩", color: "sky", skills: ["Docker", "WSL2", "Cloudflare", "Tailscale"] },
-  { label: "다음 목표", color: "butter", skills: ["Rust"] },
+  {
+    icon: "🏢",
+    label: "회사에서",
+    note: "실무에서 매일 쓰는 백엔드",
+    color: "lilac",
+    skills: ["Laravel", "PHP"],
+  },
+  {
+    icon: "📱",
+    label: "취미로",
+    note: "퇴근 후 앱을 만드는 도구",
+    color: "mint",
+    skills: ["Flutter", "Dart", "Rive", "Drift"],
+  },
+  {
+    icon: "🌱",
+    label: "배우는 중",
+    note: "이 사이트로 연습하고 있어요",
+    color: "peach",
+    skills: ["TypeScript", "Next.js", "Supabase"],
+  },
+  {
+    icon: "🖥️",
+    label: "홈랩",
+    note: "남는 PC로 꾸리는 서버",
+    color: "sky",
+    skills: ["Docker", "WSL2", "Cloudflare", "Tailscale"],
+  },
+  {
+    icon: "🚀",
+    label: "다음 목표",
+    note: "실서비스 하나 배포한 뒤",
+    color: "butter",
+    skills: ["Rust"],
+  },
 ];
 
 export const projects: Project[] = [
@@ -96,19 +128,13 @@ export const projects: Project[] = [
     summary: "Next.js와 TypeScript를 연습하며 만든 첫 웹 페이지입니다.",
     status: "운영 중",
     color: "rose",
-    tags: ["Next.js", "TypeScript", "Tailwind", "three.js"],
+    tags: ["Next.js", "TypeScript", "Tailwind", "Flutter Web"],
     details: [
       "클레이모피즘 스타일에 마이크로 인터랙션을 더했습니다.",
+      "Done It 미니 데모는 Flutter로 만들어 웹으로 빌드했습니다.",
       "GitHub Actions로 GitHub Pages에 자동 배포됩니다.",
     ],
   },
-];
-
-export const doneTasks = [
-  "물 한 잔 마시기",
-  "커밋 하나 올리기",
-  "스트레칭 5분",
-  "이 포트폴리오 구경하기",
 ];
 
 export const surfaceClass: Record<ClayColor, string> = {
