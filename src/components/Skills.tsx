@@ -33,7 +33,7 @@ export default function Skills() {
               </motion.span>
               <div>
                 <h3 className="font-display text-2xl text-ink">{group.label}</h3>
-                <p className="text-sm text-ink/70">{group.note}</p>
+                <p className="text-sm text-ink/75">{group.note}</p>
               </div>
             </div>
             <ul className="mt-5 flex flex-wrap gap-3">

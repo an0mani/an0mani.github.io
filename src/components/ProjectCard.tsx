@@ -70,7 +70,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </motion.span>
         <div className="flex flex-col items-end gap-2">
           {project.step && (
-            <span className="font-display text-sm tracking-wider text-muted">{project.step}</span>
+            <span className="font-display text-sm tracking-wider text-ink/75">{project.step}</span>
           )}
           <span className="clay-pressed bg-white/50 px-3 py-1 text-sm font-medium text-ink">
             {project.status}

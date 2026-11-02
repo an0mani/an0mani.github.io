@@ -57,6 +57,7 @@ export default function Nav() {
             )}
             <motion.a
               href={`#${link.id}`}
+              aria-current={activeId === link.id ? "location" : undefined}
               whileTap={SQUISH_TAP}
               transition={SQUISH_SPRING}
               className="relative block px-3 py-2 font-display text-base text-ink sm:px-5"
