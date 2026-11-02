@@ -20,6 +20,9 @@
 # production
 /build
 
+# flutter web build (scripts/build-flutter.sh)
+/public/done-it/
+
 # misc
 .DS_Store
 *.pem

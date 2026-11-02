@@ -1,5 +1,5 @@
 import Contact from "@/components/Contact";
-import DoneDemo from "@/components/DoneDemo";
+import AppDemo from "@/components/AppDemo";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
@@ -13,7 +13,7 @@ export default function Home() {
         <Hero />
         <Skills />
         <Projects />
-        <DoneDemo />
+        <AppDemo />
         <Contact />
       </main>
     </>

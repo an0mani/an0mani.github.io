@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Flutter 앱과 그 빌드 결과물
+    "flutter_app/**",
+    "public/done-it/**",
   ]),
 ]);
 
