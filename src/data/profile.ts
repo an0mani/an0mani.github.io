@@ -30,6 +30,7 @@ export const profile = {
   intro:
     "회사에서는 Laravel로 서비스를 만들고, 퇴근 후에는 Flutter로 작은 앱을 만듭니다. 요즘은 TypeScript와 Next.js로 웹까지 넓혀 가는 중입니다.",
   github: "https://github.com/an0mani",
+  site: "https://an0mani.github.io",
 };
 
 export const skillGroups: SkillGroup[] = [
