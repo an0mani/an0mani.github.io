@@ -21,7 +21,8 @@ const TILT_SPRING = { stiffness: 220, damping: 18 };
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const reduced = useReducedMotion();
-  const [isOpen, setIsOpen] = useState(false);
+  // 대표 프로젝트는 처음부터 자세한 내용을 펼쳐 둔다.
+  const [isOpen, setIsOpen] = useState(project.featured ?? false);
 
   // 마우스 위치에 따라 카드가 살짝 기울어집니다.
   const pointerX = useMotionValue(0);
@@ -54,7 +55,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       style={{ rotateX, rotateY, transformPerspective: 900 }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className={`clay flex flex-col p-6 ${surfaceClass[project.color]}`}
+      className={`clay flex flex-col p-6 ${surfaceClass[project.color]} ${
+        project.featured ? "sm:col-span-2" : ""
+      }`}
     >
       <div className="mb-5 flex items-start justify-between gap-3">
         <motion.span
@@ -75,7 +78,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
       </div>
 
-      <h3 className="font-display text-2xl text-ink">{project.title}</h3>
+      <h3 className={`font-display text-ink ${project.featured ? "text-3xl" : "text-2xl"}`}>
+        {project.title}
+      </h3>
       <p className="mt-2 leading-relaxed text-ink/80">{project.summary}</p>
 
       <ul className="mt-4 flex flex-wrap gap-2">

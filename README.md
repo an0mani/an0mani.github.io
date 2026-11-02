@@ -9,6 +9,7 @@ Next.js로 만든 사이트 안에 Flutter로 만든 Done It 미니 앱이 들�
 
 - Next.js (App Router, 정적 export) + TypeScript
 - Tailwind CSS v4
+- three.js + React Three Fiber: 첫 화면의 3D 점토 장면과 Done Buddy (WebGL이 없거나 움직임 줄이기 설정이면 CSS 점토로 대신)
 - Motion: 버튼/카드/드래그 애니메이션
 - Flutter Web: Done It 미니 앱 (`flutter_app/`, 사이트의 `/done-it/` 주소)
 
@@ -37,10 +38,13 @@ Flutter 앱의 기본 할 일 목록은 `flutter_app/lib/screens/done_screen.dar
 | 파일 | 역할 |
 | --- | --- |
 | `src/components/Hero.tsx` | 첫 화면 |
-| `src/components/ClayPlayground.tsx` | 끌어서 던지는 점토 도형과 캐릭터 |
+| `src/components/HeroVisual.tsx` | 첫 화면 그림: 3D 장면과 CSS 대체 화면 중 고르기 |
+| `src/components/ClayScene.tsx` | three.js 3D 점토 장면과 Done Buddy |
+| `src/components/ClayPlayground.tsx` | 3D를 못 쓸 때 보여 주는 CSS 점토 도형 |
 | `src/components/Skills.tsx` | 기술 목록 (벤토 그리드) |
 | `src/components/ProjectCard.tsx` | 프로젝트 카드 (기울기, 펼치기) |
-| `src/components/AppDemo.tsx` | 폰 화면 안에 Flutter 앱을 띄우는 영역 |
+| `src/components/AppDemo.tsx` | Done It 실제 화면과 Flutter 미니 데모 |
+| `public/screens/` | Done It 실제 앱 화면 캡처 |
 | `src/app/globals.css` | 색상과 `clay` 그림자 스타일 |
 | `flutter_app/lib/` | Done It 미니 앱 (Flutter) |
 

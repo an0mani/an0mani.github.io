@@ -4,6 +4,8 @@ export type ClayColor = "lilac" | "peach" | "mint" | "sky" | "butter" | "rose";
 
 export type Project = {
   step?: string;
+  /** 넓은 칸을 차지하는 대표 프로젝트 */
+  featured?: boolean;
   icon: string;
   title: string;
   summary: string;
@@ -50,7 +52,7 @@ export const skillGroups: SkillGroup[] = [
     label: "배우는 중",
     note: "이 사이트로 연습하고 있어요",
     color: "peach",
-    skills: ["TypeScript", "Next.js", "Supabase"],
+    skills: ["TypeScript", "Next.js", "three.js"],
   },
   {
     icon: "🖥️",
@@ -71,16 +73,18 @@ export const skillGroups: SkillGroup[] = [
 export const projects: Project[] = [
   {
     step: "STEP 01",
+    featured: true,
     icon: "✅",
     title: "Done It",
-    summary: "오늘 해낸 소소한 일을 기록하고 칭찬받는 앱입니다.",
-    status: "진행 중",
+    summary: "오늘 해낸 소소한 일을 기록하고, Done Buddy와 함께 자라는 앱입니다. 지친 날에도 부담 없이 남길 수 있게 만들었어요.",
+    status: "출시 준비 중",
     color: "mint",
-    tags: ["Flutter", "Rive", "Drift"],
+    tags: ["Flutter", "Riverpod", "Drift", "RevenueCat", "Google Drive"],
     details: [
-      "Done Buddy 캐릭터가 Rive 애니메이션으로 반응합니다.",
-      "로컬 DB를 Hive에서 Drift로 옮겼습니다.",
-      "Supabase 전환 여부를 검토하고 있습니다.",
+      "클레이모피즘과 말랑한 눌림 인터랙션으로 디자인을 새로 입혔습니다.",
+      "기록은 폰 안(Drift)에 두고, 구글 드라이브 앱 전용 폴더로 백업해 폰을 바꿔도 이어 씁니다.",
+      "프리미엄(월 구독·평생 이용권): 30일 인사이트, 올해의 작은 성취, 앱 잠금, 자동 백업.",
+      "테스트 119개와 GitHub Actions로 Android 빌드까지 자동 검증합니다.",
     ],
   },
   {
@@ -128,13 +132,22 @@ export const projects: Project[] = [
     summary: "Next.js와 TypeScript를 연습하며 만든 첫 웹 페이지입니다.",
     status: "운영 중",
     color: "rose",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Flutter Web"],
+    tags: ["Next.js", "TypeScript", "three.js", "Motion", "Flutter Web"],
     details: [
-      "클레이모피즘 스타일에 마이크로 인터랙션을 더했습니다.",
+      "첫 화면의 3D 점토 장면은 three.js(React Three Fiber), UI 움직임은 Motion으로 만들었습니다.",
       "Done It 미니 데모는 Flutter로 만들어 웹으로 빌드했습니다.",
       "GitHub Actions로 GitHub Pages에 자동 배포됩니다.",
     ],
   },
+];
+
+/** Done It 실제 앱 화면 (public/screens) */
+export const appScreens = [
+  { src: "/screens/doneit-home.png", label: "홈" },
+  { src: "/screens/doneit-stats.png", label: "통계" },
+  { src: "/screens/doneit-year.png", label: "올해의 작은 성취" },
+  { src: "/screens/doneit-paywall.png", label: "프리미엄" },
+  { src: "/screens/doneit-dark.png", label: "다크 모드" },
 ];
 
 export const surfaceClass: Record<ClayColor, string> = {

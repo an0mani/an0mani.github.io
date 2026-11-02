@@ -5,13 +5,13 @@ import { SQUISH_SPRING, SQUISH_TAP } from "@/components/ClayButton";
 import Section from "@/components/Section";
 import { skillGroups, surfaceClass } from "@/data/profile";
 
-// 벤토 그리드: 윗줄은 넓은 카드 두 개, 아랫줄은 작은 카드 두 개와 넓은 카드 하나
-const bentoClass = ["sm:col-span-2", "sm:col-span-2", "", "", "sm:col-span-2"];
+// 벤토 그리드: 윗줄은 카드 세 개, 아랫줄은 넓은 홈랩 카드와 다음 목표 카드
+const bentoClass = ["", "", "", "lg:col-span-2", "sm:col-span-2 lg:col-span-1"];
 
 export default function Skills() {
   return (
     <Section id="skills" eyebrow="Skills" title="다루는 기술">
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group, index) => (
           <motion.div
             key={group.label}
