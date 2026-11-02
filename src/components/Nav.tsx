@@ -8,7 +8,7 @@ const links = [
   { id: "about", label: "소개" },
   { id: "skills", label: "기술" },
   { id: "projects", label: "프로젝트" },
-  { id: "app", label: "체험" },
+  { id: "app", label: "Done It" },
   { id: "contact", label: "연락" },
 ];
 

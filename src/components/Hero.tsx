@@ -2,14 +2,14 @@
 
 import { motion } from "motion/react";
 import ClayButton from "@/components/ClayButton";
-import ClayPlayground from "@/components/ClayPlayground";
+import HeroVisual from "@/components/HeroVisual";
 import { profile } from "@/data/profile";
 
 export default function Hero() {
   return (
     <section
       id="about"
-      className="mx-auto grid w-full max-w-6xl scroll-mt-28 items-center gap-6 px-4 pt-28 pb-12 sm:px-6 lg:min-h-svh lg:grid-cols-2 lg:pt-20"
+      className="mx-auto grid w-full max-w-6xl scroll-mt-28 items-center gap-6 px-4 pt-20 pb-12 sm:px-6 lg:min-h-svh lg:grid-cols-2 lg:pt-20"
     >
       <div>
         <motion.p
@@ -65,7 +65,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <ClayPlayground />
+      {/* 모바일에서는 Done Buddy가 첫 화면에 보이도록 그림을 글 위로 올린다. */}
+      <div className="order-first lg:order-none">
+        <HeroVisual />
+      </div>
     </section>
   );
 }
