@@ -16,8 +16,11 @@ let webglSupport: boolean | undefined;
 function supportsWebGL() {
   if (webglSupport === undefined) {
     try {
-      const canvas = document.createElement("canvas");
-      webglSupport = Boolean(canvas.getContext("webgl2") ?? canvas.getContext("webgl"));
+      // three.js는 WebGL 2만 쓰므로 WebGL 1만 되는 기기에서는 CSS 점토로 대신합니다.
+      const gl = document.createElement("canvas").getContext("webgl2");
+      webglSupport = gl !== null;
+      // 확인용으로 만든 WebGL 연결은 바로 돌려줍니다.
+      gl?.getExtension("WEBGL_lose_context")?.loseContext();
     } catch {
       webglSupport = false;
     }

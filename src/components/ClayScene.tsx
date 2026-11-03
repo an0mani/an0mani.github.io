@@ -2,6 +2,7 @@
 
 import { Float, MeshDistortMaterial } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useInView } from "motion/react";
 import { useRef, useState, type ReactNode } from "react";
 import { Group, MathUtils, Mesh, Vector3 } from "three";
 
@@ -193,8 +194,20 @@ type ClaySceneProps = {
 };
 
 export default function ClayScene({ reduced }: ClaySceneProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  // 화면 밖으로 스크롤하면 그리기를 멈춰서 휴대폰 배터리와 CPU를 아낍니다.
+  const isInView = useInView(canvasRef);
+
   return (
-    <Canvas camera={{ position: [0, 0, 6.5], fov: 45 }} dpr={[1, 2]} gl={{ alpha: true, antialias: true }}>
+    <Canvas
+      ref={canvasRef}
+      frameloop={isInView ? "always" : "never"}
+      camera={{ position: [0, 0, 6.5], fov: 45 }}
+      dpr={[1, 2]}
+      gl={{ alpha: true, antialias: true }}
+      role="img"
+      aria-label="점토로 빚은 Done Buddy와 파스텔 도형들"
+    >
       <hemisphereLight args={["#ffffff", "#c9b8ff", 1.3]} />
       <directionalLight position={[3, 5, 4]} intensity={1.6} />
       <pointLight position={[-4, -2, 3]} intensity={18} color="#ffb8d2" />

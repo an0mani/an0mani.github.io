@@ -147,6 +147,7 @@ export default function ClayPlayground() {
           whileDrag={{ scale: 1.08, rotate: -6 }}
           style={{ "--tone": "#b9a3ff", "--tone-dark": "#7b5be0" } as CSSProperties}
           className="clay-ball clay-ball-blob flex size-full cursor-grab flex-col items-center justify-center gap-3 active:cursor-grabbing"
+          role="img"
           aria-label="Done Buddy"
         >
           <span className="flex gap-6 sm:gap-8">

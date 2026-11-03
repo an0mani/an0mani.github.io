@@ -46,6 +46,8 @@ Flutter 앱의 기본 할 일 목록은 `flutter_app/lib/screens/done_screen.dar
 | `src/components/AppDemo.tsx` | Done It 실제 화면과 Flutter 미니 데모 |
 | `public/screens/` | Done It 실제 앱 화면 캡처 |
 | `src/app/globals.css` | 색상과 `clay` 그림자 스타일 |
+| `src/app/not-found.tsx` | 없는 주소로 들어왔을 때 보이는 404 화면 |
+| `src/app/opengraph-image.png` | 링크를 공유할 때 보이는 미리보기 이미지 (1200×630) |
 | `flutter_app/lib/` | Done It 미니 앱 (Flutter) |
 
 ## 배포
