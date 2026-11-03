@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import LabHeader from "@/components/lab/LabHeader";
+import PhysicsBowlDemo from "@/components/lab/three/PhysicsBowlDemo";
+import ShaderBlobDemo from "@/components/lab/three/ShaderBlobDemo";
 import { labDemo } from "@/data/lab";
 import { profile } from "@/data/profile";
 
@@ -17,6 +19,8 @@ export default function LabThreePage() {
   return (
     <main className="flex-1 pb-24">
       <LabHeader slug="three" />
+      <ShaderBlobDemo />
+      <PhysicsBowlDemo />
     </main>
   );
 }
