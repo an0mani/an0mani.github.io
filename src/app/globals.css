@@ -73,6 +73,99 @@
   }
 }
 
+/* 애니메이션 실험실(/lab/motion): 자바스크립트 없이 CSS만으로 만드는 움직임입니다. 동작 줄이기를 켜면 모두 멈춥니다. */
+
+/* 페이지를 얼마나 내렸는지 맨 위 막대로 보여 줍니다(scroll() 타임라인). */
+.lab-css-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  height: 0.4rem;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #b9a3ff, #ffb59c, #8fe3bf);
+}
+
+/* 스크롤 연동을 지원하지 않는 브라우저에서만 안내 문구를 보여 줍니다. */
+.lab-css-unsupported {
+  display: block;
+}
+
+@supports (animation-timeline: view()) {
+  .lab-css-unsupported {
+    display: none;
+  }
+}
+
+/* 카드가 화면에 들어오는 만큼 떠오릅니다(view() 타임라인). */
+.lab-css-reveal {
+  transform-origin: center bottom;
+}
+
+/* 스프링처럼 살짝 넘쳤다가 돌아오는 이징을 linear()로 흉내 냅니다. */
+.lab-css-spring {
+  transition: transform 700ms
+    linear(0, 0.18 4%, 0.6 10%, 1.02 17%, 1.17 22%, 1.21 25%, 1.17 29%, 1.04 36%, 0.97 43%, 0.96 47%, 0.99 57%, 1.01 66%, 1);
+}
+
+.lab-css-spring:hover,
+.lab-css-spring:focus-visible {
+  transform: translateY(-0.5rem) scale(1.06);
+}
+
+/* 처음 나타날 때의 모습을 @starting-style로 정해 두면, 생기는 순간 거기서부터 움직입니다. */
+.lab-css-toast {
+  transition:
+    opacity 400ms ease,
+    transform 500ms linear(0, 0.6 12%, 1.08 26%, 1.02 40%, 0.99 60%, 1);
+}
+
+@starting-style {
+  .lab-css-toast {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .lab-css-progress {
+      animation: lab-css-grow linear both;
+      animation-timeline: scroll(root);
+    }
+
+    .lab-css-reveal {
+      animation: lab-css-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-css-spring,
+  .lab-css-toast {
+    transition: none;
+  }
+}
+
+@keyframes lab-css-grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes lab-css-rise {
+  from {
+    opacity: 0;
+    transform: translateY(3rem) scale(0.92) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
