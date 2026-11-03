@@ -2,8 +2,8 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
-import { useSyncExternalStore } from "react";
 import ClayPlayground from "@/components/ClayPlayground";
+import { useWebGL2 } from "@/lib/webgl";
 
 // three.js는 브라우저에서만 동작하므로 서버 렌더링에서 빼고 필요할 때 불러옵니다.
 const ClayScene = dynamic(() => import("@/components/ClayScene"), {
@@ -11,29 +11,10 @@ const ClayScene = dynamic(() => import("@/components/ClayScene"), {
   loading: () => null,
 });
 
-let webglSupport: boolean | undefined;
-
-function supportsWebGL() {
-  if (webglSupport === undefined) {
-    try {
-      // three.js는 WebGL 2만 쓰므로 WebGL 1만 되는 기기에서는 CSS 점토로 대신합니다.
-      const gl = document.createElement("canvas").getContext("webgl2");
-      webglSupport = gl !== null;
-      // 확인용으로 만든 WebGL 연결은 바로 돌려줍니다.
-      gl?.getExtension("WEBGL_lose_context")?.loseContext();
-    } catch {
-      webglSupport = false;
-    }
-  }
-  return webglSupport;
-}
-
-const subscribeNothing = () => () => {};
-
 // 첫 화면 오른쪽 그림: 3D 점토 장면, 3D를 못 쓰거나 움직임 줄이기 설정이면 CSS 점토로 대신합니다.
 export default function HeroVisual() {
   const reduced = useReducedMotion() ?? false;
-  const canUse3D = useSyncExternalStore(subscribeNothing, supportsWebGL, () => false);
+  const canUse3D = useWebGL2();
 
   if (!canUse3D || reduced) {
     return <ClayPlayground />;
